@@ -1,4 +1,4 @@
-package com.al.gilttest.ui.events;
+package com.al.gilttest.ui.events.women;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -16,7 +16,7 @@ import java.util.List;
 
 
 public class WomenTab extends Fragment {
-    public static final String TAG = WomenTab.class.getName();
+    public static final String W_TAG = WomenTab.class.getName();
     public static final String W_SALES_KEY = "wom_active_sales";
     private List<W_SalesVE> w_sales = new ArrayList<>();
     private W_Adapter w_adapter;
@@ -36,7 +36,7 @@ public class WomenTab extends Fragment {
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        if (getArguments() == null) {
+        if (getArguments() != null) {
             w_sales = getArguments().getParcelableArrayList(W_SALES_KEY);
         }
     }

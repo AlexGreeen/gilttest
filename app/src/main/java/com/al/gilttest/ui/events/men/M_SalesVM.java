@@ -1,19 +1,20 @@
-package com.al.gilttest.ui.events;
+package com.al.gilttest.ui.events.men;
 
 
 import android.os.Parcel;
 import android.os.Parcelable;
 
-public class SaleViewEntity implements Parcelable {
-    public static final Parcelable.Creator<SaleViewEntity> CREATOR = new Parcelable.Creator<SaleViewEntity>() {
+public class M_SalesVM implements Parcelable {
+
+    public static final Parcelable.Creator<M_SalesVM> CREATOR = new Parcelable.Creator<M_SalesVM>() {
         @Override
-        public SaleViewEntity createFromParcel(Parcel source) {
-            return new SaleViewEntity(source);
+        public M_SalesVM createFromParcel(Parcel source) {
+            return new M_SalesVM(source);
         }
 
         @Override
-        public SaleViewEntity[] newArray(int size) {
-            return new SaleViewEntity[size];
+        public M_SalesVM[] newArray(int size) {
+            return new M_SalesVM[size];
         }
     };
     private String name;
@@ -28,7 +29,7 @@ public class SaleViewEntity implements Parcelable {
     private Integer imageWidth;
     private Integer imageHeight;
 
-    public SaleViewEntity(String name, String sale, String saleKey, String store, String description, String saleUrl, String begins, String ends, String imageUrl, Integer imageWidth, Integer imageHeight) {
+    M_SalesVM(String name, String sale, String saleKey, String store, String description, String saleUrl, String begins, String ends, String imageUrl, Integer imageWidth, Integer imageHeight) {
         this.name = name;
         this.sale = sale;
         this.saleKey = saleKey;
@@ -42,7 +43,10 @@ public class SaleViewEntity implements Parcelable {
         this.imageHeight = imageHeight;
     }
 
-    protected SaleViewEntity(Parcel in) {
+    public M_SalesVM() {
+    }
+
+    protected M_SalesVM(Parcel in) {
         this.name = in.readString();
         this.sale = in.readString();
         this.saleKey = in.readString();

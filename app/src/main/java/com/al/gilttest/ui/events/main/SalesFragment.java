@@ -1,4 +1,4 @@
-package com.al.gilttest.ui.events;
+package com.al.gilttest.ui.events.main;
 
 
 import android.os.Bundle;
@@ -18,14 +18,14 @@ import java.util.List;
 public class SalesFragment extends Fragment {
     public static final String TAG = SalesFragment.class.getSimpleName();
     public static final String SALES_KEY = "sales_key";
-    private List<SaleViewEntity> sales = new ArrayList<>();
+    private List<SalesVM> sales = new ArrayList<>();
     private SalesListAdapter adapter;
     private RecyclerView recyclerView;
     private RecyclerView.LayoutManager layoutManager;
 
-    public static SalesFragment newInstance(List<SaleViewEntity> sales) {
+    public static SalesFragment newInstance(List<SalesVM> sales) {
         Bundle args = new Bundle();
-        ArrayList<SaleViewEntity> data = new ArrayList<>();
+        ArrayList<SalesVM> data = new ArrayList<>();
         data.addAll(sales);
         args.putParcelableArrayList(SALES_KEY, data);
         SalesFragment fragment = new SalesFragment();
