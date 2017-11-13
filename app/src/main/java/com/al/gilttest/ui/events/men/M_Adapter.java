@@ -1,4 +1,4 @@
-package com.al.gilttest.ui.events;
+package com.al.gilttest.ui.events.men;
 
 
 import android.support.v7.widget.RecyclerView;
@@ -17,23 +17,23 @@ import java.util.List;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-class W_Adapter extends RecyclerView.Adapter<W_Adapter.ViewHolder> {
+class M_Adapter extends RecyclerView.Adapter<M_Adapter.ViewHolder> {
 
-    private List<W_SalesVE> list = new ArrayList<>();
+    private List<M_SalesVM> sales = new ArrayList<>();
 
-    public W_Adapter(List<W_SalesVE> list) {
-        this.list = list;
+    public M_Adapter(List<M_SalesVM> sales) {
+        this.sales = sales;
     }
 
     @Override
-    public W_Adapter.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+    public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.sales_list_item, parent, false);
         return new ViewHolder(v);
     }
 
     @Override
-    public void onBindViewHolder(W_Adapter.ViewHolder holder, int position) {
-        W_SalesVE sale = list.get(position);
+    public void onBindViewHolder(ViewHolder holder, int position) {
+        M_SalesVM sale = sales.get(position);
         Picasso.with(holder.itemView.getContext()).load(sale.getImageUrl()).into(holder.img);
         holder.saleName.setText(sale.getName());
         holder.saleEnds.setText(sale.getEnds());
@@ -41,10 +41,10 @@ class W_Adapter extends RecyclerView.Adapter<W_Adapter.ViewHolder> {
 
     @Override
     public int getItemCount() {
-        return 0;
+        return sales.size();
     }
 
-    public static class ViewHolder extends RecyclerView.ViewHolder {
+    public class ViewHolder extends RecyclerView.ViewHolder {
         @BindView(R.id.sale_image)
         ImageView img;
         @BindView(R.id.sale_name)

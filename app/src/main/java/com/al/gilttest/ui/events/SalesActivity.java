@@ -10,6 +10,8 @@ import android.support.v7.widget.Toolbar;
 import com.al.gilttest.R;
 import com.al.gilttest.data.DataManager;
 import com.al.gilttest.data.remote.constants.Constants;
+import com.al.gilttest.ui.events.main.SalesFragment;
+import com.al.gilttest.ui.events.main.SalesVM;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -27,7 +29,7 @@ public class SalesActivity extends AppCompatActivity implements DataManager.OnCo
     Toolbar toolbar_bottom;
     //@BindView(R.id.navigation_view)
     NavigationView navigation_view;
-    private List<SaleViewEntity> sales = new ArrayList<>();
+    private List<SalesVM> sales = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,7 +46,7 @@ public class SalesActivity extends AppCompatActivity implements DataManager.OnCo
 
 
     @Override
-    public void onComplete(List<SaleViewEntity> retData) {
+    public void onComplete(List<SalesVM> retData) {
         sales.addAll(retData);
         getSupportFragmentManager().beginTransaction()
                 .add(R.id.content_frame, SalesFragment.newInstance(sales),

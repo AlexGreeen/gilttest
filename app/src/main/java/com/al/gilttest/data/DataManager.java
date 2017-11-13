@@ -5,8 +5,8 @@ import android.support.annotation.NonNull;
 
 import com.al.gilttest.data.remote.giltapi.ApiProvider;
 import com.al.gilttest.data.remote.model.salesResponse.SalesResponse;
-import com.al.gilttest.ui.events.SaleViewEntity;
-import com.al.gilttest.ui.events.SalesListMapper;
+import com.al.gilttest.ui.events.main.SalesListMapper;
+import com.al.gilttest.ui.events.main.SalesVM;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -17,7 +17,7 @@ import retrofit2.Response;
 
 public class DataManager {
     private static DataManager instance;
-    private List<SaleViewEntity> salesList = new ArrayList<>();
+    private List<SalesVM> salesList = new ArrayList<>();
     private OnCompleteCallback completeCallback;
 
     private DataManager() {
@@ -54,6 +54,6 @@ public class DataManager {
     }
 
     public interface OnCompleteCallback {
-        void onComplete(List<SaleViewEntity> data);
+        void onComplete(List<SalesVM> data);
     }
 }

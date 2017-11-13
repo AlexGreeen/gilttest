@@ -1,20 +1,19 @@
-package com.al.gilttest.ui.events;
+package com.al.gilttest.ui.events.main;
 
 
 import android.os.Parcel;
 import android.os.Parcelable;
 
-class W_SalesVE implements Parcelable {
-
-    public static final Parcelable.Creator<W_SalesVE> CREATOR = new Parcelable.Creator<W_SalesVE>() {
+public class SalesVM implements Parcelable {
+    public static final Parcelable.Creator<SalesVM> CREATOR = new Parcelable.Creator<SalesVM>() {
         @Override
-        public W_SalesVE createFromParcel(Parcel source) {
-            return new W_SalesVE(source);
+        public SalesVM createFromParcel(Parcel source) {
+            return new SalesVM(source);
         }
 
         @Override
-        public W_SalesVE[] newArray(int size) {
-            return new W_SalesVE[size];
+        public SalesVM[] newArray(int size) {
+            return new SalesVM[size];
         }
     };
     private String name;
@@ -29,10 +28,21 @@ class W_SalesVE implements Parcelable {
     private Integer imageWidth;
     private Integer imageHeight;
 
-    public W_SalesVE() {
+    public SalesVM(String name, String sale, String saleKey, String store, String description, String saleUrl, String begins, String ends, String imageUrl, Integer imageWidth, Integer imageHeight) {
+        this.name = name;
+        this.sale = sale;
+        this.saleKey = saleKey;
+        this.store = store;
+        this.description = description;
+        this.saleUrl = saleUrl;
+        this.begins = begins;
+        this.ends = ends;
+        this.imageUrl = imageUrl;
+        this.imageWidth = imageWidth;
+        this.imageHeight = imageHeight;
     }
 
-    protected W_SalesVE(Parcel in) {
+    protected SalesVM(Parcel in) {
         this.name = in.readString();
         this.sale = in.readString();
         this.saleKey = in.readString();
