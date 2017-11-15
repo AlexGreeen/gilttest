@@ -16,7 +16,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class ApiProvider {
     private static ApiProvider instance;
-    private static Sales salesApi;
+    private static SalesService salesApi;
    /* int cacheSize = 10 * 1024 * 1024;
     Cache cache = new Cache(getCacheDir(), cacheSize);*/
 
@@ -31,11 +31,11 @@ public class ApiProvider {
         return instance;
     }
 
-    private Sales createSalesApi(Retrofit retrofit) {
-        return retrofit.create(Sales.class);
+    private SalesService createSalesApi(Retrofit retrofit) {
+        return retrofit.create(SalesService.class);
     }
 
-    public Sales getSalesApi() {
+    public SalesService getSalesApi() {
         if (salesApi == null) {
             salesApi = createSalesApi(createRetrofit(Constants.G_BASE_URL.toString(),
                     createClient(Constants.G_KEY_QUERY.toString(),
@@ -64,7 +64,7 @@ public class ApiProvider {
                         Request request = chain.request();
                         HttpUrl url = request.url()
                                 .newBuilder()
-                                .addQueryParameter(Constants.G_KEY_QUERY.toString(), Constants.G_API_KEY.toString())
+                                .addQueryParameter(queryParam, key)
                                 .build();
                         request = request.newBuilder().url(url).build();
                         return chain.proceed(request);

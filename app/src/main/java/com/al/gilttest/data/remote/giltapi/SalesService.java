@@ -7,7 +7,7 @@ import retrofit2.Call;
 import retrofit2.http.GET;
 import retrofit2.http.Path;
 
-public interface Sales {
+public interface SalesService {
 
     @GET("sales/{status}.json")
     Call<SalesResponse> getSales(@Path("status") String status);

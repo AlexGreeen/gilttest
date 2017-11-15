@@ -4,7 +4,7 @@ package com.al.gilttest.ui.events.women;
 import android.os.Parcel;
 import android.os.Parcelable;
 
-class W_SalesVE implements Parcelable {
+public class W_SalesVE implements Parcelable {
 
     public static final Parcelable.Creator<W_SalesVE> CREATOR = new Parcelable.Creator<W_SalesVE>() {
         @Override
